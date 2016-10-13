@@ -4,3 +4,13 @@
 
 <!-- iterate through each state in the array and put them into list items individually -->
 
+<select>
+  <% @states.each do |state|%>
+    <%if state[:id]=='IN'%>
+      <option value=<%=state[:id]%> selected=selected><%=state[:name]%></option>
+    <%else%>
+       <option value=<%=state[:id]%>><%=state[:name]%></option>
+    <%end%>
+  <%end%>
+</select>
+
