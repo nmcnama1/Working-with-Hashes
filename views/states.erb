@@ -5,12 +5,9 @@
 <!-- iterate through each state in the array and put them into list items individually -->
 
 <select>
-  <% @states.each do |state|%>
-    <%if state[:id]=='IN'%>
-      <option value=<%=state[:id]%> selected=selected><%=state[:name]%></option>
-    <%else%>
-       <option value=<%=state[:id]%>><%=state[:name]%></option>
-    <%end%>
-  <%end%>
+  <%# jarp: this works but it's too much repetition. add an if block inline %>
+  <%# jarp: also, it's just presentation but leave spaces before and after the % tags. Makes it more readable %>
+  <% @states.each do |state| %>
+      <option value=<%= state[:id] %> <%if state[:id]=='IN'%> selected=selected <% end %>><%= state[:name] %></option>
+  <% end %>
 </select>
-
